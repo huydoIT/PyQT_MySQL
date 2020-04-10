@@ -24,7 +24,7 @@ def get_data():
 
 def get_by_acc(acc, pwd):
     try:
-        sql = "SELECT  balance, name FROM account WHERE user =%s AND pass =%s"
+        sql = "SELECT id FROM account WHERE user =%s AND pass =%s"
         cur.execute(sql, (acc, pwd))
         rs = cur.fetchone()
         if not rs:
@@ -34,13 +34,25 @@ def get_by_acc(acc, pwd):
     except:
         conn.rollback()
 
+def get_by_id(id):
+    try:
+        sql = "SELECT  balance, name FROM account WHERE id =%s"
+        cur.execute(sql, (id, ))
+        rs = cur.fetchone()
+        if not rs:
+            return None
+        else:
+            return rs
+    except:
+        conn.rollback()
 
 def update_data(value):
     try:
-        sql = "UPDATE `account` SET `balance`=%s WHERE `acc`=%s"
+        sql = "UPDATE `account` SET `balance`=%s WHERE `id`=%s"
         # adr = tuple()  # ("accB", )
         cur.execute(sql, value)
         conn.commit()
-        print("Update success!\n")
+        return 0
     except:
         conn.rollback()
+    return 1

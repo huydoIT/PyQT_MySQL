@@ -9,8 +9,6 @@ import getdata as cnt
 from mainForm import Form_MainWindow
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-name = ""
-balance = 0
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -92,28 +90,25 @@ class Ui_MainWindow(object):
 
 
     def login_check(self):
-        rs = "Account do not exits"
-        rs2 = "Login completed!"
-        # f = open("db.txt", "r")
         db = cnt.get_by_acc(self.txtUser.text(), self.txtPass.text())
         if not db:
             self.lbResult.setText("Username or password incorrect")
         else:
-            self.lbResult.setText("Hello " + db[1])
+            self.lbResult.setText("Login success!!")
             self.window = QtWidgets.QMainWindow()
-            self.name = db[1]
-            self.balance = db[0]
-            self.ui = Form_MainWindow(self.name, self.balance)
+            
+            self.id = db[0]
+            self.ui = Form_MainWindow(self.id)
             self.ui.setupUi(self.window)
-            MainWindow.hide()
+            # MainWindow.hide()
             self.window.show()
             print("TEST")
 
     def call_main(self):
         self.window = QtWidgets.QMainWindow()
-        self.name = name
-        self.balance = balance
-        self.ui = Form_MainWindow(self.name, self.balance)
+        self.id = id
+        
+        self.ui = Form_MainWindow(self.id)
         self.ui.setupUi(self.window)
         self.window.show()
 

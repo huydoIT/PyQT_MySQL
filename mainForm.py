@@ -7,13 +7,15 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import getdata as cnt
 
 class Form_MainWindow(object):
-    def __init__(self, name, balance):
-        self.n = name
-        self.b = balance
-        print("Full name: %s || Balance = %s" % (name, balance))
+    def __init__(self, id):
+        db = cnt.get_by_id(id)
+        self.id = id
+        self.b = db[0]
+        self.n = db[1]
+        print("Full name: %s || Balance = %s" % (db[1], db[0]))
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -60,8 +62,14 @@ class Form_MainWindow(object):
         font.setPointSize(12)
         self.btInp.setFont(font)
         self.btInp.setObjectName("btInp")
+        
+        self.btInp.clicked.connect(self.btInp_click)
+        
         self.btOut = QtWidgets.QPushButton(self.groupBox_2)
         self.btOut.setGeometry(QtCore.QRect(250, 20, 101, 41))
+        
+        self.btOut.clicked.connect(self.btOut_click)
+       
         font = QtGui.QFont()
         font.setPointSize(12)
         self.btOut.setFont(font)
@@ -117,7 +125,34 @@ class Form_MainWindow(object):
         self.label_3.setText(_translate("MainWindow", "円"))
         self.label_4.setText(_translate("MainWindow", "Money"))
 
-
+    def btInp_click(self):
+        value = str(self.txtMoney.text())
+        if value.isdigit():
+            rs = int(value) + int(self.lbBal.text())
+            if cnt.update_data((rs, self.id, )) == 0:
+                print("Update success!")
+                dt = cnt.get_by_id(self.id)   
+                self.lbBal.setText(str(dt[0]))
+                self.txtMoney.setText("")
+            else:
+                print("Update failed!")
+        else:
+            print("Input not accept.")
+    
+    def btOut_click(self):
+        value = str(self.txtMoney.text())
+        if value.isdigit():
+            rs = int(value)*(-1) + int(self.lbBal.text())
+            if cnt.update_data((rs, self.id, )) == 0:
+                print("Update success!")
+                dt = cnt.get_by_id(self.id)   
+                self.lbBal.setText(str(dt[0]))
+                self.txtMoney.setText("")
+            else:
+                print("Update failed!")
+        else:
+            print("Input not accept.")    
+            
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
