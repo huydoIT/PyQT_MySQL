@@ -12,6 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 # TEST GUI_TEST branch
 # Server - Client systems
 
+# ABCDEFGH, ABCHEFGH, ABCDEFGH
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
