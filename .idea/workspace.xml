@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="958b1706-b32d-4582-9cb0-5912fc80a9f7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/form.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +30,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Excel2Csv" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PythonSocket" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunManager" selected="Python.form">
@@ -100,10 +101,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="550" y="22" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1586492855404" />
-    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1586492798673">
+    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1586759688434">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1586492798672" />
+    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1586759688434" />
     <state width="1345" height="223" key="GridCell.Tab.0.bottom" timestamp="1586331105332">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -136,16 +137,5 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1345" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1586331105332" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/form.py</url>
-          <line>7</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
